@@ -7,6 +7,14 @@
     "common": {
       "loading": "Chargement...",
       "language": "Langue"
+    },
+    "quizz": {
+      "title": "Section Quiz",
+      "description": "Bienvenue dans notre section quiz. Commencez à apprendre avec des quiz interactifs !"
+    },
+    "class": {
+      "title": "Classe Virtuelle",
+      "description": "Bienvenue dans notre classe virtuelle. Commencez votre parcours d'apprentissage ici !"
     }
   }
 }

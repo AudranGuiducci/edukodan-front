@@ -7,6 +7,14 @@
     "common": {
       "loading": "Loading...",
       "language": "Language"
+    },
+    "quizz": {
+      "title": "Quiz Section",
+      "description": "Welcome to our quiz section. Start learning through interactive quizzes!"
+    },
+    "class": {
+      "title": "Virtual Classroom",
+      "description": "Welcome to our virtual classroom. Start your learning journey here!"
     }
   }
 }
