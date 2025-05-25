@@ -1,14 +1,22 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 import './i18n'
 import './index.css'
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
+async function init() {
+  if (import.meta.env.DEV) {
+    const { worker } = await import('./mocks/browser')
+    await worker.start({
+      onUnhandledRequest: 'bypass',
+    })
+  }
+
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
       <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+    </StrictMode>,
+  )
+}
+
+init()
