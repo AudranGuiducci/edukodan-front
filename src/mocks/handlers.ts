@@ -1,6 +1,15 @@
 import { http, HttpResponse } from 'msw'
 
 // Mock data
+const subjects = [
+  { id: 1, name: 'History' },
+  { id: 2, name: 'Math' },
+  { id: 3, name: 'Geography' },
+  { id: 4, name: 'Science' },
+  { id: 5, name: 'Literature' },
+  { id: 6, name: 'Art' },
+]
+
 const quizzes = {
   math: [
     { id: 1, title: 'Basic Algebra', questions: [] },
@@ -26,14 +35,19 @@ const classes = {
 } as const
 
 export const handlers = [
+  // Get subjects
+  http.get('/api/subjects', () => {
+    return HttpResponse.json(subjects)
+  }),
+
   // Get quizzes by subject
   http.get('/api/quizzes/:subject', ({ params }) => {
     const subject = (params.subject as string).toLowerCase() as SubjectKey
     const subjectQuizzes = quizzes[subject]
-    
+
     if (!subjectQuizzes) {
       return new HttpResponse(
-        JSON.stringify({ error: 'Subject not found' }), 
+        JSON.stringify({ error: 'Subject not found' }),
         { status: 404 }
       )
     }
@@ -45,10 +59,10 @@ export const handlers = [
   http.get('/api/classes/:subject', ({ params }) => {
     const subject = (params.subject as string).toLowerCase() as SubjectKey
     const subjectClasses = classes[subject]
-    
+
     if (!subjectClasses) {
       return new HttpResponse(
-        JSON.stringify({ error: 'Subject not found' }), 
+        JSON.stringify({ error: 'Subject not found' }),
         { status: 404 }
       )
     }
