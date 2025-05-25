@@ -1,0 +1,12 @@
+{
+  "translation": {
+    "about": {
+      "title": "À Propos",
+      "description": "En savoir plus sur notre entreprise et notre mission."
+    },
+    "common": {
+      "loading": "Chargement...",
+      "language": "Langue"
+    }
+  }
+}

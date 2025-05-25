@@ -1,0 +1,12 @@
+{
+  "translation": {
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our company and mission."
+    },
+    "common": {
+      "loading": "Loading...",
+      "language": "Language"
+    }
+  }
+}
