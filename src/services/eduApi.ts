@@ -11,7 +11,20 @@ export interface Class {
   level: string
 }
 
+export interface Subject {
+  id: number
+  name: string
+}
+
 export const eduApi = {
+  async getSubjects(): Promise<Subject[]> {
+    const response = await fetch('/api/subjects')
+    if (!response.ok) {
+      throw new Error('Failed to fetch subjects')
+    }
+    return response.json()
+  },
+  
   async getQuizzes(subject: string): Promise<Quiz[]> {
     const response = await fetch(`/api/quizzes/${subject}`)
     if (!response.ok) {

@@ -1,20 +1,18 @@
 import { createContext, useContext, ReactNode, useState } from 'react'
-
-type AppSection = 'home' | 'quizz' | 'class'
-type Subject = 'history' | 'math' | 'geography' | 'science' | 'literature'
+import { Section } from '../constants/navigation'
 
 interface AppState {
-  section: AppSection
-  subject: Subject | null
-  setSection: (section: AppSection) => void
-  setSubject: (subject: Subject | null) => void
+  section: Section
+  subject: string | null
+  setSection: (section: Section) => void
+  setSubject: (subject: string | null) => void
 }
 
 const AppContext = createContext<AppState | undefined>(undefined)
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [section, setSection] = useState<AppSection>('home')
-  const [subject, setSubject] = useState<Subject | null>(null)
+  const [section, setSection] = useState<Section>('home')
+  const [subject, setSubject] = useState<string | null>(null)
 
   return (
     <AppContext.Provider value={{ section, subject, setSection, setSubject }}>
